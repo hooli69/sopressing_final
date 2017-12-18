@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik');
+
+*{
+	font-family: 'Rubik', sans-serif;
+}
+
+/*
+[class*="col-"], footer {
+	background-color: lightgreen;
+	border: 2px solid black;
+	border-radius: 6px;
+	line-height: 40px;
+	text-align: center;
+}
+*/
+
+/* En-tête */
+section .title {
+	padding-bottom: 1%;
+	color: #3E8161;
+	/*background-color: #3E8161;*/
+	border: #3E8161;
+	/* padding:3%; */
+}
+
+/* Bouton contact */
+.button_contact{
+	cursor: pointer;
+	color:white;
+	border:none;
+	background-color: #3E8161;
+	margin: auto;
+	font-size: 1.1em;
+}
+
+.button_contact:hover{
+	background-color: #539575;
+}
+
+/* Design des résultats text */
+.nom_pressing, .price_pressing,{
+	font-size: 1.3em;
+	margin: auto;
+}
+
+.adresse_pressing, .distance_pressing{
+	font-size: 1em;
+	margin: auto;
+}
+
+.alignement-gauche
+{
+	text-align: left;
+}
+
+/* Border des pressings affichés */
+.result{
+	padding:1.5%;
+	border-top: 1px solid lightgrey;
+}
+
+.scroll{
+	overflow: scroll;
+	max-height: 900px;
+}
+
+/* Border gmap */
+.gmap{
+	border-left: 1px dotted lightgrey;
+}
+
+/* Taille map */
+#map {
+	height: 900px;
+	width: 100%;
+}
+
+/* Info window */
+.info_content{
+	h6{
+		color:#3E8161;
+		font-weight: bold;
+	}
+	p{
+		color:#717171;
+		width:130px;
+		margin:auto;
+	}
+}
