@@ -1,13 +1,28 @@
 class HomeController < ApplicationController
 
 	def index
+		if defined? @distance || defined? @items || defined? @basket_price || defined? @pressing_sorted
+			@distance = []
+			@items = []
+			@basket_price = []
+			@pressing_sorted = []
+			@@locations = []
+			@@search = []
+			@@popo = []
+		else
+
+		end
+
 		if params[:search].present?
-			@@locations = Pressing.near(params[:search],0.5, {order: ""}).pluck(:id, :name, :address, :phone, :latitude, :longitude)
+			locations = Pressing.near(params[:search],0.5, {order: ""})
+			@@locations = locations.pluck(:id, :name, :address, :phone, :latitude, :longitude)
 			@@search = Geocoder.coordinates(params[:search])
 			redirect_to :home_select
 		else
 			@@locations = Pressing.all
 		end
+		
+
 	end
 
 	def select
@@ -24,7 +39,7 @@ class HomeController < ApplicationController
 		result = SortPressing.new(@@popo, @items, @@locations).perform
 		@basket_price = result[0]
 		@pressing_sorted = result[1].reject(&:blank?)	
+
 	end
 
 end
-
