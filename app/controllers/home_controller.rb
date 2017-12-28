@@ -10,16 +10,20 @@ class HomeController < ApplicationController
 			@@search = []
 			@@popo = []
 		else
-
+			redirect_to :home_index
 		end
 
 		if params[:search].present?
-			locations = Pressing.near(params[:search],0.5, {order: ""})
-			@@locations = locations.pluck(:id, :name, :address, :phone, :latitude, :longitude)
-			@@search = Geocoder.coordinates(params[:search])
-			redirect_to :home_select
+			if params[:search].empty?
+				redirect_to :home_index
+			else
+				locations = Pressing.near(params[:search],0.5, {order: ""})
+				@@locations = locations.pluck(:id, :name, :address, :phone, :latitude, :longitude)
+				@@search = Geocoder.coordinates(params[:search])
+				redirect_to :home_select
+			end
 		else
-			@@locations = Pressing.all
+			
 		end
 		
 
