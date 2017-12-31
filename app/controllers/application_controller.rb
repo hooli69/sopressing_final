@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
                 ActionController::RoutingError,
                 ActionController::UnknownController,
                 Exception,
-                ActionController::MethodNotAllowed do |excption|
+                ActionController::MethodNotAllowed do |exception|
 
       # Put loggers here, if desired.
 
